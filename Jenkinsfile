@@ -14,16 +14,15 @@ environment {
                 sh 'mvn clean package'
             }
         }
-        stage('SonarQube analysis') {
-            environment {
-                scannerHome = tool 'sonar-scanner'
-            }
-            steps {
-            withSonarQubeEnv('sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
-                sh "${scannerHome}/bin/sonar-scanner"
-            }
+        stage('SonarCloud analysis') {
+    steps {
+        withSonarQubeEnv('SonarCloud') {
+            sh 'mvn sonar:sonar -Dsonar.organization=devops-sonar-jenkins -Dsonar.projectKey=devops-sonar-jenkins -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=7d53dc1caf140c3cba898079288eb83f1244d36b'
         }
     }
+    }
+
+    }
 }
-}
+
 
