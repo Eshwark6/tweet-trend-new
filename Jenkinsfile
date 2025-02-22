@@ -6,7 +6,7 @@ pipeline {
     }
 
 Environment {
-    PATH = $PATH:"/opt/apache-maven-4.0.0-alpha-10/bin"
+    PATH = "/opt/apache-maven-4.0.0-alpha-10/bin:$PATH"
     stages {
         stage('Build') {
             steps {
