@@ -17,7 +17,7 @@ environment {
         stage('SonarCloud analysis') {
     steps {
         withSonarQubeEnv('sonarqube-server') {
-            sh 'mvn sonar:sonar -Dsonar.organization=devops-sonar-jenkins -Dsonar.projectKey=devops-sonar-jenkins -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.login=7d53dc1caf140c3cba898079288eb83f1244d36b'
+            sh 'mvn sonar:sonar -Dsonar.organization=devops-sonar-jenkins -Dsonar.projectKey=devops-sonar-jenkins -Dsonar.host.url=https://sonarcloud.io/'
         }
     }
     }
