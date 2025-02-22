@@ -5,10 +5,15 @@ pipeline {
         }
     }
 
+Environment {
+    PATH = $PATH:/opt/apache-maven-4.0.0-alpha-10/bin
     stages {
-        stage('CLone-code') {
+        stage('Build') {
             steps {
-                git branch: 'main', url: 'https://github.com/Eshwark6/tweet-trend-new.git'
+                sh 'mvn clean package'
+            }
+            steps {
+                
             }
         }
     }
