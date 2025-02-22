@@ -5,7 +5,7 @@ pipeline {
         }
     }
 
-Environment {
+environment {
     PATH = "/opt/apache-maven-4.0.0-alpha-10/bin:$PATH"
 }
     stages {
@@ -13,9 +13,7 @@ Environment {
             steps {
                 sh 'mvn clean package'
             }
-            steps {
-                
-            }
+           
         }
     }
 }
