@@ -11,8 +11,18 @@ environment {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                echo 'building started........'
+                sh 'mvn clean package -Dmaven.skip.test=true'
+                echo 'building completed........'
             }
+        stage ('Testing'){
+            steps {
+                echo 'testing started........'
+                sh 'mvn surefire-report:report'
+                echo 'testing completed........'
+            }
+        }
+        
         }
         stage('SonarCloud analysis') {
     steps {
